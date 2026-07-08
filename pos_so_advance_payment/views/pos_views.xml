@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pos_config_view_form_pos_advance" model="ir.ui.view">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='posbox_reference']" position="after">
+                <h2>Sale Order Configuration</h2>
+                <div class="row mt16 o_settings_container" id="so_configuration">
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="allow_create_sale_order"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="allow_create_sale_order"/>
+                            <div class="text-muted">
+                                Creates Sale order from POS
+                            </div>
+                            <div class="content-group" attrs="{'invisible': [('allow_create_sale_order', '=', False)]}">
+                                <div class="mt16">
+                                    <div class="text-muted">
+                                        Default State
+                                    </div>
+                                    <field name="pos_sale_order_state"
+                                           attrs="{'required': [('allow_create_sale_order','=',True)]}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6 o_setting_box"
+                         attrs="{'invisible': ['|', ('pos_sale_order_state', '!=', 'sale_order'),('allow_create_sale_order', '=', False)]}">
+                        <div class="o_setting_left_pane">
+                            <field name="allow_advance_payment"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="allow_advance_payment"/>
+                            <div class="text-muted">
+                                Sale order advance payment.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
