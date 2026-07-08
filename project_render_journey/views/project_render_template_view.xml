@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="portal_project_renders" name="Project Render">
+		<t t-call="portal.portal_layout">
+			<t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Sales Orders</t>
+            </t>
+            <t t-set="o_portal_fullwidth_alert" groups="project.group_project_user">
+                <t t-call="portal.portal_back_in_edit_mode">
+                    <t t-set="backend_url"
+                       t-value="'/web#model=project.project&amp;id=%s&amp;view_type=form' % (project.id)"/>
+                </t>
+            </t>
+            <div id="wrap" class="o_portal_wrap project_render_test">
+            	<div class="container mb64">
+            		<div class="container o_portal_sidebar">
+            			<div class="row mt16 o_project_portal_sidebar">
+            				<t t-call="portal.portal_record_sidebar">
+			                    <t t-set="classes" t-value="'col-lg-3 d-print-none'"/>
+			                    <t t-set="entries">
+			                        <ul class="list-group list-group-flush flex-wrap flex-row flex-lg-column">
+			                            <li id="task-nav" class="list-group-item ps-0 flex-grow-1 d-flex align-items-center" t-ignore="true" role="complementary">
+			                                <ul class="nav flex-column">
+			                                    <li class="nav-item" id="nav-header">
+			                                        <a class="nav-link ps-3 project_details" href="#project_details" style="max-width: 200px;">Project Details</a>
+			                                    </li>
+			                                    <li class="nav-item" id="nav-chat">
+			                                        <a class="nav-link ps-3 task_chat" href="#task_chat">Tasks</a>
+			                                    </li>
+			                                    <li class="nav-item" id="nav-chat">
+			                                        <a href="#ProjectRenders" class="" data-toggle="collapse">Project Renders</a>
+			                                        <div id="ProjectRenders" class="collapse">
+			                                        	<ul>
+				                                        	<li><a href="#3DDrawings" class="3DDrawings" data-toggle="collapse">3D Drawings</a></li>
+				                                        	<li><a href="#MaterialsSelection" class="MaterialsSelection" data-toggle="collapse">Materials Selection</a></li>
+				                                        	<li><a href="#ElectricalPlan" class="ElectricalPlan" data-toggle="collapse">Electrical Plan</a></li>
+				                                        	<li><a href="#Appliances" class="Appliances" data-toggle="collapse">Appliances</a></li>
+				                                        	<li><a href="#Lights" class="Lights" data-toggle="collapse">Lights</a></li>
+														</ul>
+													</div>
+			                                    </li>
+			                                    <li class="nav-item" id="nav-chat">
+			                                    	<a href="#ProjectJourney" class="" data-toggle="collapse">Project Journey</a>
+			                                    	<div id="ProjectJourney" class="collapse">
+				                                        <ul>
+				                                        	<li><a href="#Picturescompletionwork" class="Picturescompletionwork" data-toggle="collapse">Pictures completion work</a></li>
+				                                        	<li><a href="#Completionwithfollow" class="" data-toggle="collapse">Completion with follow up defects list</a></li>
+				                                        	<li><a href="#Acknowledgedefects" class="" data-toggle="collapse">Acknowledge defects</a></li>
+				                                        	<li><a href="#CalendarActivities" class="" data-toggle="collapse">Calendar Activities</a></li>
+				                                        </ul>
+				                                    </div>
+			                                    </li>
+			                                </ul>
+			                            </li>
+			                            <li id="task-links" t-if="task_link_section" class="list-group-item ps-0 flex-grow-1 d-flex align-items-center" t-ignore="true" role="complementary">
+			                                <ul class="nav flex-column">
+			                                    <t t-foreach="task_link_section" t-as="task_link">
+			                                        <li class="nav-item">
+			                                            <a class="nav-link ps-3" t-att-href="task_link['access_url']">
+			                                                <t t-out="task_link['title']"/>
+			                                            </a>
+			                                        </li>
+			                                    </t>
+			                                </ul>
+			                            </li>
+			                        </ul>
+			                    </t>
+			                </t>
+            				<div class="col-lg-9 justify-content-end">
+
+            					<!-- Project Detail -->
+			                    <div id="project_information_div" class="row col-md-12" style="padding-right: 0px; padding-left: 0px; border: 1px solid rgba(0, 0, 0, 0.125);">
+			                        <div class="col-md-12 card-header">
+			                        	<h5 class="mb-0">
+			                            	<span t-field="project.name" class="text-truncate"/>
+			                            </h5>
+			                        </div>
+			                        <div class="card-body">
+			                        	<div class="row">
+					                        <div t-if="project.partner_id" class="col-md-6">
+					                            <h6>Customer</h6>
+					                            <div class="row" style="padding-bottom: 20px;">
+					                                <div class="col flex-grow-0 pr-3">
+					                                    <img t-if="project.partner_id.image_1024" class="rounded-circle mt-1 o_portal_contact_img" t-att-src="image_data_uri(project.partner_id.image_1024)" alt="Contact"/>
+					                                    <img t-else="" class="rounded-circle mt-1 o_portal_contact_img" src="/web/static/src/img/user_menu_avatar.png" alt="Contact"/>
+					                                </div>
+					                                <div class="col pl-sm-0">
+					                                    <address t-field="project.partner_id" t-options='{"widget": "contact", "fields": ["name", "email", "phone"]}'/>
+					                                </div>
+					                            </div>
+					                            <div class="row">
+					                            	<div class="col">
+					                            		<h6>NRIC: </h6>
+					                            	</div>
+					                            	<div class="col">
+					                            		<span t-field="project.nric"/>
+					                            	</div>
+					                            </div>
+					                            <div class="row">
+					                            	<div class="col">
+					                            		<h6>Customer's Mobile: </h6>
+					                            	</div>
+					                            	<div class="col">
+					                            		<span t-field="project.partner_phone"/>
+					                            	</div>
+					                            </div>
+					                            <div class="row">
+					                            	<div class="col">
+					                            		<h6>Email: </h6>
+					                            	</div>
+					                            	<div class="col">
+					                            		<span t-field="project.partner_email"/>
+					                            	</div>
+					                            </div>
+					                            <div class="row">
+					                            	<div class="col">
+					                            		<h6>Address: </h6>
+					                            	</div>
+					                            	<div class="col">
+					                            		<span t-field="project.street"/>
+					                            	</div>
+					                            </div>
+					                        </div>
+					                        <div t-if="project.user_id" class="col-md-6">
+					                            <h6>Project Manager</h6>
+					                            <div class="row">
+					                                <div class="col flex-grow-0 pr-3">
+					                                    <img t-if="project.user_id.image_1024" class="rounded-circle mt-1 o_portal_contact_img" t-att-src="image_data_uri(project.user_id.image_1024)" alt="Contact"/>
+					                                    <img t-else="" class="rounded-circle mt-1 o_portal_contact_img" src="/web/static/src/img/user_menu_avatar.png" alt="Contact"/>
+					                                </div>
+					                                <div class="col pl-sm-0">
+					                                    <address t-field="project.user_id" t-options='{"widget": "contact", "fields": ["name", "email", "phone"]}'/>
+					                                </div>
+					                            </div>
+					                            <div class="row">
+					                            	<div class="col">
+					                            		<h6>Agreement Date: </h6>
+					                            	</div>
+					                            	<div class="col">
+					                            		<span t-field="project.start_date"/>
+					                            	</div>
+					                            </div>
+					                            <div class="row">
+					                            	<div class="col">
+					                            		<h6>Total Revenue: </h6>
+					                            	</div>
+					                            	<div class="col">
+					                            		<span t-field="project.total_revenue"/>
+					                            	</div>
+					                            </div>
+					                            <div class="row">
+					                            	<div class="col">
+					                            		<h6>Start Work Date: </h6>
+					                            	</div>
+					                            	<div class="col">
+					                            		<span t-field="project.renovation_start_date"/>
+					                            	</div>
+					                            </div>
+					                            <div class="row">
+					                            	<div class="col">
+					                            		<h6>Sales Designer: </h6>
+					                            	</div>
+					                            	<div class="col">
+					                            		<span t-field="project.user_sale_id.name"/>
+					                            	</div>
+					                            </div>
+					                            <div class="row">
+					                            	<div class="col">
+					                            		<h6>Estimated End Work Date: </h6>
+					                            	</div>
+					                            	<div class="col">
+					                            		<span t-field="project.estimated_end_date"/>
+					                            	</div>
+					                            </div>
+					                        </div>
+					                    </div>
+				                    </div>
+			                    </div><br/>
+
+			                    <!-- Tasks Detail -->
+			                    <div id="task_information" class="row col-md-12 d-none">
+			                    	<t t-if="project.task_ids">
+			                    		<t t-call="portal.portal_table">
+		                    				<thead>
+		                    					<tr t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}">
+			                    					<th class="text-left">Ref</th>
+			                    					<th class="text-left"><i style="font-weight: 400 !important; font-size: 15px;">Tasks for project:  </i><strong><span t-esc="project.name"/></strong></th>
+			                    					<th class="text-left">Start Date</th>
+			                    					<th class="text-left">End Date</th>
+			                    					<th class="text-left">Stage</th>
+			                    				</tr>
+		                    				</thead>
+			                    			<t t-foreach="project.task_ids" t-as="task">
+			                    				<tbody>
+		                    						<tr>
+		                    							<td class="text-left">
+					                                        #<span t-esc="task.id"/>
+					                                    </td>
+					                                    <td>
+					                                        <a t-attf-href="/my/task/#{task.id}?{{ keep_query() }}"><span t-field="task.name"/></a>
+					                                    </td>
+					                                    <td>
+					                                        <span t-field="task.planned_date_begin_new" t-options='{"widget": "date"}'/>
+					                                    </td>
+					                                    <td>
+					                                        <span t-field="task.planned_date_end_new" t-options='{"widget": "date"}'/>
+					                                    </td>
+					                                    <td>
+					                                        <span class="badge badge-pill badge-info" title="Current stage of the task" t-esc="task.stage_id.name" />
+					                                    </td>
+		                    						</tr>
+			                    				</tbody>
+			                    			</t>
+			                    		</t>
+			                    	</t>
+			                    </div><br/>
+
+			                    <!-- 3D Drawings -->
+			                    <div id="3DDrawings" class="row col-md-12 d-none">
+			                        <div class="col-md-12" t-if="project_renders.mapped('three_d_drawings')">
+			                            <h2 class="text-center">
+			                                <u>
+			                                    <strong>3D Drawings</strong>
+			                                </u>
+			                            </h2>
+			                        </div>
+			                        <t t-foreach="project_renders.mapped('three_d_drawings')" t-as="d_image">
+			                            <div class="col-md-6 text-center">
+			                                <h4>
+			                                    <t t-esc="d_image.name"/>
+			                                </h4>
+			                                <img t-att-src="image_data_uri(d_image.image_1920)" class="img-thumbnail image-container" style="width: 200px; height: 162px;"/>
+			                            </div>
+			                        </t>
+			                    </div>
+
+			                    <!-- Materials Selection -->
+			                    <div id="MaterialsSelection" class="row col-md-12 d-none">
+			                        <div class="col-md-12" t-if="project_renders.mapped('materials_ids')">
+			                            <h2 class="text-center">
+			                                <u>
+			                                    <strong>Materials Selection</strong>
+			                                </u>
+			                            </h2>
+			                        </div>
+			                        <t t-foreach="project_renders.mapped('materials_ids')" t-as="d_image">
+			                            <div class="col-md-6 text-center">
+			                                <h4>
+			                                    <t t-esc="d_image.name"/>
+			                                </h4>
+			                                <img t-att-src="image_data_uri(d_image.image_1920)" class="img-thumbnail image-container" style="width: 200px; height: 162px;"/>
+			                            </div>
+			                        </t>
+			                    </div>
+
+			                    <!-- Electrical Plan -->
+			                    <div id="ElectricalPlan" class="row col-md-12 d-none">
+			                        <div class="col-md-12" t-if="project_renders.mapped('electrical_plan_ids')">
+			                            <h2 class="text-center">
+			                                <u>
+			                                    <strong>Electrical Plan</strong>
+			                                </u>
+			                            </h2>
+			                        </div>
+			                        <t t-foreach="project_renders.mapped('electrical_plan_ids')" t-as="d_image">
+			                            <div class="col-md-6 text-center">
+			                                <h4>
+			                                    <t t-esc="d_image.name"/>
+			                                </h4>
+			                                <img t-att-src="image_data_uri(d_image.image_1920)" class="img-thumbnail image-container" style="width: 200px; height: 162px;"/>
+			                            </div>
+			                        </t>
+			                    </div>
+
+			                    <!-- Appliances -->
+			                    <div id="Appliances" class="row col-md-12 d-none">
+			                        <div class="col-md-12" t-if="project_renders.mapped('appliances_ids')">
+			                            <h2 class="text-center">
+			                                <u>
+			                                    <strong>Appliances</strong>
+			                                </u>
+			                            </h2>
+			                        </div>
+			                        <t t-foreach="project_renders.mapped('appliances_ids')" t-as="d_image">
+			                            <div class="col-md-6 text-center">
+			                                <h4>
+			                                    <t t-esc="d_image.name"/>
+			                                </h4>
+			                                <img t-att-src="image_data_uri(d_image.image_1920)" class="img-thumbnail image-container" style="width: 200px; height: 162px;"/>
+			                            </div>
+			                        </t>
+			                    </div>
+
+			                    <!-- Lights -->
+			                    <div id="Lights" class="row col-md-12 d-none">
+			                        <div class="col-md-12" t-if="project_renders.mapped('lights_ids')">
+			                            <h2 class="text-center">
+			                                <u>
+			                                    <strong>Lights</strong>
+			                                </u>
+			                            </h2>
+			                        </div>
+			                        <t t-foreach="project_renders.mapped('lights_ids')" t-as="d_image">
+			                            <div class="col-md-6 text-center">
+			                                <h4>
+			                                    <t t-esc="d_image.name"/>
+			                                </h4>
+			                                <img t-att-src="image_data_uri(d_image.image_1920)" class="img-thumbnail image-container" style="width: 200px; height: 162px;"/>
+			                            </div>
+			                        </t>
+			                    </div>
+
+			                    <!-- <t t-esc="project"/> -->
+
+			                    <!-- Pictures completion work -->
+			                    <!-- <div id="Picturescompletionwork" class="row col-md-12 d-none">
+			                        <div class="col-md-12" t-if="project_journey.mapped('project_journey_images')">
+			                            <h2 class="text-center">
+			                                <u>
+			                                    <strong>Pictures completion work</strong>
+			                                </u>
+			                            </h2>
+			                        </div>
+			                        <t t-foreach="project_journey.mapped('project_journey_images')" t-as="d_image">
+			                            <div class="col-md-6 text-center">
+			                                <h4>
+			                                    <t t-esc="d_image.name"/>
+			                                </h4>
+			                                <img t-att-src="image_data_uri(d_image.image_1920)" class="img-thumbnail image-container"/>
+			                            </div>
+			                        </t>
+			                    </div> -->
+
+            				</div>
+            			</div>
+            		</div>
+            	</div>
+            </div>
+		</t>
+	</template>
+
+</odoo>

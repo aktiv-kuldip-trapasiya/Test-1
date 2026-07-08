@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="project_renders_form_view" model="ir.ui.view">
+            <field name="name">project.renders.form.view</field>
+            <field name="model">project.renders</field>
+            <field name="arch" type="xml">
+                <form create="0" duplicate="0">
+                    <sheet>
+                         <div class="oe_title">
+                             <h1>
+                                <field name="project_id" default_focus="1" placeholder="Project" required="True"/>
+                            </h1>
+                         </div>
+                        <notebook name="project_renders_notebook">
+                            <page name="three_d_drawings_page" string="3d Images">
+                                <field name="three_d_drawings" class="o_website_sale_image_list" domain="[('project_render_id', '=', 'id')]"
+                                       mode="kanban" options="{'create_text':'Add 3D Images'}" nolabel="1"/>
+                            </page>
+                            <page name="materials_page" string="Materials">
+                                <field name="materials_ids" class="o_website_sale_image_list" domain="[('project_render_id', '=', 'id')]"
+                                       mode="kanban" options="{'create_text':'Add Material Image'}" nolabel="1"/>
+                            </page>
+                            <page name="electrical_plan_page" string="Electric Plan">
+                                <field name="electrical_plan_ids" class="o_website_sale_image_list" domain="[('project_render_id', '=', 'id')]"
+                                       mode="kanban" options="{'create_text':'Add Electric Plan'}" nolabel="1"/>
+                            </page>
+                            <page name="materials_page" string="Appliances">
+                                <field name="appliances_ids" class="o_website_sale_image_list" domain="[('project_render_id', '=', 'id')]"
+                                       mode="kanban" options="{'create_text':'Add Appliance'}" nolabel="1"/>
+                            </page>
+                            <page name="light_image_page" string="Light Images">
+                                <field name="lights_ids" class="o_website_sale_image_list" domain="[('project_render_id', '=', 'id')]"
+                                       mode="kanban" options="{'create_text':'Add Light Image'}" nolabel="1"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="project_renders_tree_view" model="ir.ui.view">
+            <field name="name">project.renders.tree.view</field>
+            <field name="model">project.renders</field>
+            <field name="arch" type="xml">
+                <tree create="0" duplicate="0">
+                    <field name="project_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="project_renders_action" model="ir.actions.act_window">
+            <field name="name">Project Renders</field>
+            <field name="res_model">project.renders</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+<!--        <menuitem id="project_images"-->
+<!--                  name="Project Renders"-->
+<!--                  action="project_renders_action"-->
+<!--                  parent="project.menu_projects_config"/>-->
+    </data>
+</odoo>

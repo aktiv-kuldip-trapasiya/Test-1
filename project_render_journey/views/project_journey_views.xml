@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="project_journey_form_view" model="ir.ui.view">
+            <field name="name">project.journey.form.view</field>
+            <field name="model">project.journey</field>
+            <field name="arch" type="xml">
+                <form create="0" duplicate="0">
+                    <sheet>
+                         <div class="oe_title">
+                             <h1>
+                                <field name="project_id" default_focus="1" placeholder="Project" required="True"/>
+                            </h1>
+                         </div>
+                        <notebook name="project_journey_notebook">
+                            <page name="journey_images_page" string="Journey Images">
+                                <field name="project_journey_images" class="o_website_sale_image_list" domain="[('project_render_id', '=', 'id')]"
+                                       mode="kanban" options="{'create_text':'Add Journey Image'}" nolabel="1"/>
+                            </page>
+                            <page name="journey_defect_list_page" string="Journey Defect List">
+                                <field name="project_journey_defect_list" class="o_website_sale_image_list" domain="[('project_render_id', '=', 'id')]"
+                                       mode="kanban" options="{'create_text':'Add Journey Defect List'}" nolabel="1"/>
+                            </page>
+                            <page name="journey_defect_acknowledge_page" string="Journey Defect Acknowledge">
+                                <field name="project_journey_defect_acknowledge" class="o_website_sale_image_list" domain="[('project_render_id', '=', 'id')]"
+                                       mode="kanban" options="{'create_text':'Add Journey Defect Acknowledge'}" nolabel="1"/>
+                            </page>
+                            <page name="journey_calendar_activity_page" string="Journey Calendar Activity Images">
+                                <field name="project_journey_calendar_activity" class="o_website_sale_image_list" domain="[('project_render_id', '=', 'id')]"
+                                       mode="kanban" options="{'create_text':'Add Journey Calendar Activity'}" nolabel="1"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="project_journey_tree_view" model="ir.ui.view">
+            <field name="name">project.journey.tree.view</field>
+            <field name="model">project.journey</field>
+            <field name="arch" type="xml">
+                <tree create="0" duplicate="0">
+                    <field name="project_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="project_journey_action" model="ir.actions.act_window">
+            <field name="name">Project Journey</field>
+            <field name="res_model">project.journey</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+<!--        <menuitem id="project_journey"-->
+<!--                  name="Project Journey"-->
+<!--                  action="project_journey_action"-->
+<!--                  parent="project.menu_projects_config"/>-->
+    </data>
+</odoo>

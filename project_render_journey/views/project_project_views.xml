@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="project_project_form_inherit_attachments" model="ir.ui.view">
+            <field name="name">project.project.form.inherit.attachments</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <div name="button_box" position="inside">
+                    <button class="oe_stat_button" name="project_attachment_tree_view" type="object" icon="fa-paperclip">
+                        <field string="Renders" name="project_attachment_counts" widget="statinfo"/>
+                    </button>
+                    <button class="oe_stat_button" name="project_journey_tree_view" type="object" icon="fa-paperclip">
+                        <field string="Journey" name="project_journey_counts" widget="statinfo"/>
+                    </button>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

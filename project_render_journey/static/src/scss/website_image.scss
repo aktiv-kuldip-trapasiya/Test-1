@@ -1,0 +1,15 @@
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+    max-height:70%;
+    transition: transform 0.3s ease-in-out;
+}
+.image-container:hover {
+    transform: scale(1.5); /* Adjust the scale factor for zoom level */
+    z-index: 100;
+}
+.image-container:click {
+    transform: scale(3); /* Adjust the scale factor for zoom level */
+    z-index: 100;
+}
