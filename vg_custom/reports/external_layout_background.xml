@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="external_layout_background_custom" inherit_id="web.external_layout_background">
+        <xpath expr="//div[@class='float-right']" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath expr="//div[@class='float-left company_address']" position="replace">
+            <div class="float-right company_address" style="margin-right: 100px;">
+                <div>
+                    <strong t-field="company.website" />
+                </div>
+                <div>
+                    <strong t-field="company.partner_id.name" />
+                </div>
+                <span t-field="company.partner_id"
+                    t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;], &quot;no_marker&quot;: true}" />
+                <a t-field="company.email"></a>
+            </div>
+        </xpath>
+    </template>
+</odoo>

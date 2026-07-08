@@ -1,0 +1,329 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* vg_custom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-07 16:13+0000\n"
+"PO-Revision-Date: 2023-03-07 17:18+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: ca_ES\n"
+"X-Generator: Poedit 3.0\n"
+
+#. module: vg_custom
+#: model:ir.model.fields,field_description:vg_custom.field_account_bank_statement_line__retention_perc
+#: model:ir.model.fields,field_description:vg_custom.field_account_move__retention_perc
+#: model:ir.model.fields,field_description:vg_custom.field_account_payment__retention_perc
+msgid "% Retención Garantía"
+msgstr "% Retenció Garantía"
+
+#. module: vg_custom
+#: model:ir.actions.report,print_report_name:vg_custom.account_invoices_obra
+msgid "(object._get_report_base_filename())"
+msgstr ""
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid ""
+"<span groups=\"account.group_show_line_subtotals_tax_excluded\">Amount</span>\n"
+"                                <span groups=\"account.group_show_line_subtotals_tax_included\">Total Price</span>"
+msgstr ""
+"<span groups=\"account.group_show_line_subtotals_tax_excluded\">Total</span>\n"
+"                                <span groups=\"account.group_show_line_subtotals_tax_included\">Preu Total</span>"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "<span>Description</span>"
+msgstr "<span>Descripció</span>"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "<span>Disc.%</span>"
+msgstr "<span>Desc.%</span>"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_saleorder_document_custom
+msgid "<span>Price</span>"
+msgstr "<span>Preu</span>"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "<span>Quantity</span>"
+msgstr "<span>Quantitat</span>"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "<span>Taxes</span>"
+msgstr "<span>Impostos</span>"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "<span>Unit Price</span>"
+msgstr "<span>Preu Unitari</span>"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_saleorder_document_custom
+msgid "<strong class=\"mr16\">Amount Untaxed</strong>"
+msgstr "<strong class=\"mr16\">Base Impossable</strong>"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "<strong class=\"mr16\">Subtotal</strong>"
+msgstr "<strong class=\"mr16\">Subtotal</strong>"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_saleorder_document_custom
+msgid "<strong class=\"mr16\">Total Amount</strong>"
+msgstr "<strong class=\"mr16\">Preu Total</strong>"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "<strong class=\"text-center\">Scan me with your banking app.</strong><br/><br/>"
+msgstr "<strong class=\"text-center\">Escaneja amb la teva APP bancària.</strong><br/><br/>"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+#: model_terms:ir.ui.view,arch_db:vg_custom.vg_custom_account_invoice
+msgid "<strong>Base Imponible</strong>"
+msgstr "<strong>Base Impossable</strong>"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "<strong>Credit Note Date:</strong>"
+msgstr "<strong>Data Nota de Crèdit:</strong>"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "<strong>Customer Code:</strong>"
+msgstr "<strong>Codi Client:</strong>"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "<strong>Date:</strong>"
+msgstr "<strong>Data:</strong>"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "<strong>Due Date:</strong>"
+msgstr "<strong>Data Venciment:</strong>"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "<strong>Importe de la Obra</strong>"
+msgstr "<strong>Import de l'Obra</strong>"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "<strong>Incoterm: </strong>"
+msgstr ""
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "<strong>Invoice Date:</strong>"
+msgstr "<strong>Data Factura:</strong>"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_saleorder_document_custom
+msgid "<strong>Notes:</strong>"
+msgstr ""
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "<strong>Receipt Date:</strong>"
+msgstr "<strong>Data Rebut:</strong>"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "<strong>Reference:</strong>"
+msgstr "<strong>Referencia:</strong>"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "<strong>Source:</strong>"
+msgstr "<strong>Origen:</strong>"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "<strong>Total</strong>"
+msgstr ""
+
+#. module: vg_custom
+#: model:ir.model.fields,field_description:vg_custom.field_account_bank_statement_line__subtotal_obra
+#: model:ir.model.fields,field_description:vg_custom.field_account_move__subtotal_obra
+#: model:ir.model.fields,field_description:vg_custom.field_account_payment__subtotal_obra
+msgid "Base Imponible"
+msgstr ""
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_saleorder_document_custom
+msgid "CLIENTE"
+msgstr "CLIENT"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "Cancelled Invoice"
+msgstr ""
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "Credit Note"
+msgstr ""
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_saleorder_document_custom
+msgid "Description"
+msgstr "Descripció"
+
+#. module: vg_custom
+#: model:ir.model.fields,field_description:vg_custom.field_account_move__display_name
+#: model:ir.model.fields,field_description:vg_custom.field_sale_order__display_name
+#: model:ir.model.fields,field_description:vg_custom.field_sale_order_line__display_name
+msgid "Display Name"
+msgstr "Nom a mostrar"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "Draft Invoice"
+msgstr "Factura Borrador"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_saleorder_document_custom
+msgid "FECHA"
+msgstr "DATA"
+
+#. module: vg_custom
+#: model:ir.actions.report,name:vg_custom.account_invoices_obra
+msgid "Factura (Obra)"
+msgstr ""
+
+#. module: vg_custom
+#: model:ir.model.fields,field_description:vg_custom.field_account_move__id
+#: model:ir.model.fields,field_description:vg_custom.field_sale_order__id
+#: model:ir.model.fields,field_description:vg_custom.field_sale_order_line__id
+msgid "ID"
+msgstr ""
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: vg_custom
+#: model:ir.model,name:vg_custom.model_account_move
+msgid "Journal Entry"
+msgstr "Assentament comptable"
+
+#. module: vg_custom
+#: model:ir.model.fields,field_description:vg_custom.field_account_move____last_update
+#: model:ir.model.fields,field_description:vg_custom.field_sale_order____last_update
+#: model:ir.model.fields,field_description:vg_custom.field_sale_order_line____last_update
+msgid "Last Modified on"
+msgstr "Última modificació el "
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_saleorder_document_custom
+msgid "Logo"
+msgstr ""
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_saleorder_document_custom
+msgid "PPT. NUM"
+msgstr ""
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "Please use the following communication for your payment :"
+msgstr "Si us plau utilitza la referencia pel pagament:"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_saleorder_document_custom
+msgid "Price/Unit"
+msgstr "Preu/u"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_saleorder_document_custom
+msgid "Quantity"
+msgstr "Quantitat"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_saleorder_document_custom
+msgid "REF"
+msgstr ""
+
+#. module: vg_custom
+#: model:ir.model.fields,field_description:vg_custom.field_sale_order__refernce_report
+msgid "Referencia"
+msgstr ""
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "Retención por garantia ("
+msgstr "Retenció per garantía ("
+
+#. module: vg_custom
+#: model:ir.model.fields,field_description:vg_custom.field_account_bank_statement_line__warranty_retention
+#: model:ir.model.fields,field_description:vg_custom.field_account_move__warranty_retention
+#: model:ir.model.fields,field_description:vg_custom.field_account_payment__warranty_retention
+msgid "Retención por garantía"
+msgstr "Retenció per garantía"
+
+#. module: vg_custom
+#: model:ir.model,name:vg_custom.model_sale_order
+msgid "Sales Order"
+msgstr "Comanda de venda"
+
+#. module: vg_custom
+#: model:ir.model,name:vg_custom.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línia comanda de venda"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "Tax ID"
+msgstr ""
+
+#. module: vg_custom
+#: model:ir.model.fields,field_description:vg_custom.field_account_bank_statement_line__amount_by_group_obra
+#: model:ir.model.fields,field_description:vg_custom.field_account_move__amount_by_group_obra
+#: model:ir.model.fields,field_description:vg_custom.field_account_payment__amount_by_group_obra
+msgid "Tax amount by group"
+msgstr ""
+
+#. module: vg_custom
+#: model:ir.model.fields,field_description:vg_custom.field_account_bank_statement_line__amount_total_obra
+#: model:ir.model.fields,field_description:vg_custom.field_account_move__amount_total_obra
+#: model:ir.model.fields,field_description:vg_custom.field_account_payment__amount_total_obra
+msgid "Total"
+msgstr ""
+
+#. module: vg_custom
+#: model:ir.model.fields,field_description:vg_custom.field_sale_order_line__product_uom_q
+msgid "Unit of Measure"
+msgstr ""
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_saleorder_document_custom
+msgid "Uom"
+msgstr "Unitats"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "Vendor Bill"
+msgstr "Factura Proveidor"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "Vendor Credit Note"
+msgstr "Nota de Crèdit Proveidor"
+
+#. module: vg_custom
+#: model_terms:ir.ui.view,arch_db:vg_custom.report_invoice_obra_document
+msgid "on"
+msgstr ""
