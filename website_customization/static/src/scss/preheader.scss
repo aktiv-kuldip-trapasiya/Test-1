@@ -1,0 +1,87 @@
+// Custom USP preheader.
+$pre-header-bg: var(--o-color-1);
+$pre-header-text: #ffffff;
+$pre-header-divider: rgba(255, 255, 255, 0.4);
+
+.s_pre_header {
+    background-color: $pre-header-bg;
+    color: $pre-header-text;
+    padding: 10px 0;
+    font-size: 14px;
+    line-height: 1.4;
+
+    a {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+            color: inherit;
+            text-decoration: underline;
+        }
+    }
+
+    .s_pre_header_items {
+        row-gap: 6px;
+        column-gap: 24px;
+    }
+
+    .s_pre_header_item {
+        gap: 8px;
+        white-space: nowrap;
+    }
+
+    .s_pre_header_icon {
+        font-size: 16px;
+        flex-shrink: 0;
+        line-height: 1;
+    }
+
+    // Uploaded image / SVG used as an icon (via the media dialog).
+    .s_pre_header_icon img,
+    img.s_pre_header_icon {
+        height: 16px;
+        width: auto;
+        object-fit: contain;
+    }
+
+    .s_pre_header_divider {
+        width: 1px;
+        height: 16px;
+        background-color: $pre-header-divider;
+    }
+
+    // Social networks (standard s_social_media snippet) on the right.
+    .s_pre_header_socials {
+        margin-left: 24px;
+
+        .s_social_media {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            margin: 0;
+
+            a {
+                font-size: 15px;
+                opacity: 0.9;
+                line-height: 1;
+                transition: opacity 0.15s ease-in-out;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 991.98px) {
+        .s_pre_header_row {
+            justify-content: center;
+            text-align: center;
+        }
+
+        .s_pre_header_socials {
+            margin-left: 0;
+            margin-top: 6px;
+        }
+    }
+}

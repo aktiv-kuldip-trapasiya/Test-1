@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Hide individual variant VALUES on the frontend (server-side, no flash)
+         when the value's variant has `allow_out_of_stock_order = False`.
+
+         website_sale.variants builds `ptavs` (the values of each attribute line)
+         and every display type (radio / pills / color / select) loops over it,
+         so filtering `ptavs` once removes the hidden values from all of them.
+         It is t-called by the product page AND Theme Prime's Quick View, so this
+         covers both. `product` (a product.template) is always in scope. -->
+    <template id="variants_hide_unticked_values" inherit_id="website_sale.variants"
+              name="MM: Hide variant values whose variant is not ticked">
+
+        <!-- Compute the hidden-value ids once, right after attribute_exclusions. -->
+        <xpath expr="//t[@t-set='attribute_exclusions']" position="after">
+            <t t-set="mm_hidden_ptav_ids" t-value="product._mm_hidden_ptav_ids()"/>
+        </xpath>
+
+        <!-- Drop hidden values from the per-line value list. -->
+        <xpath expr="//t[@t-set='ptavs']" position="attributes">
+            <attribute name="t-value">ptal.product_template_value_ids._only_active().filtered(lambda p: p.id not in mm_hidden_ptav_ids)</attribute>
+        </xpath>
+
+    </template>
+
+</odoo>

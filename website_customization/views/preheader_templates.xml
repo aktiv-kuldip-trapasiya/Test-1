@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        Custom preheader (inactive until picked in Edit > Theme > Preheader).
+
+        Plain, editable view content:
+          - USP text is edited by clicking it,
+          - USP icons are replaced by double-clicking them (standard media dialog),
+          - changes save to the view (website-specific copy),
+        exactly like the theme's own preheaders. USPs (left, pipe-separated) and
+        the standard Social Media snippet (right) sit on ONE line.
+    -->
+    <template id="template_preheader_custom_usp" inherit_id="website.layout"
+              name="Custom Preheader - USP" active="False">
+        <xpath expr="//header/*" position="before">
+            <div class="s_pre_header" data-name="Preheader">
+                <div class="container-fluid">
+                    <div class="s_pre_header_row d-flex flex-wrap align-items-center justify-content-between">
+
+                        <!-- USPs -->
+                        <div class="s_pre_header_items d-flex flex-wrap align-items-center">
+
+                            <div class="s_pre_header_item d-flex align-items-center">
+                                <i class="fa fa-truck s_pre_header_icon o_editable_media"/>
+                                <span>Verzending binnen 24-48u</span>
+                            </div>
+
+                            <span class="s_pre_header_divider d-none d-lg-inline-block"/>
+
+                            <div class="s_pre_header_item d-flex align-items-center">
+                                <i class="fa fa-gift s_pre_header_icon o_editable_media"/>
+                                <span>Gratis verzending vanaf €100 (BE &amp; NL)</span>
+                            </div>
+
+                            <span class="s_pre_header_divider d-none d-lg-inline-block"/>
+
+                            <div class="s_pre_header_item d-flex align-items-center">
+                                <i class="fa fa-life-ring s_pre_header_icon o_editable_media"/>
+                                <span>Specialist in Rondbreien</span>
+                            </div>
+
+                            <span class="s_pre_header_divider d-none d-lg-inline-block"/>
+
+                            <div class="s_pre_header_item d-flex align-items-center">
+                                <i class="fa fa-envelope-o s_pre_header_icon o_editable_media"/>
+                                <span>Vragen of persoonlijk advies? Mail ons: <a href="mailto:info@mooigemaakt.be">info@mooigemaakt.be</a></span>
+                            </div>
+
+                        </div>
+
+                        <!-- Social networks: standard s_social_media snippet -->
+                        <div class="s_pre_header_socials">
+                            <div class="s_social_media o_not_editable no_icon_color"
+                                 data-snippet="s_social_media" data-name="Social Media">
+                                <a href="/website/social/facebook" class="s_social_media_facebook" target="_blank" aria-label="Facebook">
+                                    <i class="fa fa-facebook o_editable_media"/>
+                                </a>
+                                <a href="/website/social/instagram" class="s_social_media_instagram" target="_blank" aria-label="Instagram">
+                                    <i class="fa fa-instagram o_editable_media"/>
+                                </a>
+                                <a href="/website/social/youtube" class="s_social_media_youtube" target="_blank" aria-label="YouTube">
+                                    <i class="fa fa-youtube-play o_editable_media"/>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <!--
+        Register the preheader in Theme Prime's "Preheader" selector. That select
+        lives in the theme's WEBSITE-SPECIFIC snippet_options view, so this button
+        view must be website-specific too (validated in the website's context).
+    -->
+    <record id="preheader_button" model="ir.ui.view">
+        <field name="name">Custom Preheader - USP button</field>
+        <field name="type">qweb</field>
+        <field name="mode">extension</field>
+        <field name="inherit_id" ref="website.snippet_options"/>
+        <field name="website_id" ref="website.default_website"/>
+        <field name="arch" type="xml">
+            <xpath expr="//we-select[@data-variable='tp-preheader-template']" position="inside">
+                <we-button title="Custom Preheader - USP" data-name="tp_preheader_custom_usp_opt"
+                           data-customize-website-views="website_customization.template_preheader_custom_usp"
+                           data-customize-website-variable="'custom_usp'"
+                           data-img="/website_customization/static/src/img/options/preheader_custom_usp.svg"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
