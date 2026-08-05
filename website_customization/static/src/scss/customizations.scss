@@ -1,3 +1,9 @@
 // General custom website / Theme Prime overrides.
 // Add site-wide CSS tweaks here so they live outside the third-party
 // theme_prime module. One rule/block per concern, commented with its purpose.
+
+// Notice shown above the variant selectors when hide_variants_templates.xml
+// has hidden one or more out-of-stock attribute values.
+.mm-hidden-variant-badge {
+    font-style: italic;
+}

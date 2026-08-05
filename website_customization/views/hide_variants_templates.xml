@@ -15,6 +15,14 @@
         <!-- Compute the hidden-value ids once, right after attribute_exclusions. -->
         <xpath expr="//t[@t-set='attribute_exclusions']" position="after">
             <t t-set="mm_hidden_ptav_ids" t-value="product._mm_hidden_ptav_ids()"/>
+            <!-- Let buyers know some options are hidden due to stock, instead
+                 of just silently shrinking the value list with no explanation.
+                 Placed here (once, before the per-line loop) rather than next
+                 to `ptavs` below, which re-evaluates per attribute line. -->
+            <div class="mm-hidden-variant-badge text-muted small mb-2"
+                 t-if="mm_hidden_ptav_ids">
+                Some options are currently unavailable and are hidden.
+            </div>
         </xpath>
 
         <!-- Drop hidden values from the per-line value list. -->
