@@ -35,6 +35,17 @@ class ProductTemplate(models.Model):
             for variant in self.sudo().product_variant_ids
         )
 
+    def _mm_hidden_variant_count(self):
+        """Count of attribute values hidden by `_mm_hidden_ptav_ids`.
+
+        Exposed separately (rather than making the JS compute `len()` on the
+        id list) so the configurator payload stays cheap to read from and the
+        counting logic has a single home if it ever needs to change (e.g. to
+        exclude out-of-stock-but-orderable values).
+        """
+        self.ensure_one()
+        return len(self._mm_hidden_ptav_ids())
+
     def _get_additional_configurator_data(
         self, product_or_template, date, currency, pricelist, **kwargs
     ):
@@ -53,4 +64,5 @@ class ProductTemplate(models.Model):
         if template._name == 'product.product':
             template = template.product_tmpl_id
         data['mm_hidden_ptav_ids'] = template._mm_hidden_ptav_ids()
+        data['mm_hidden_variant_count'] = template._mm_hidden_variant_count()
         return data

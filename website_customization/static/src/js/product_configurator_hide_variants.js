@@ -22,6 +22,11 @@ patch(ProductConfiguratorDialog.prototype, {
             if (!hidden.size) {
                 continue;
             }
+            if (product.mm_hidden_variant_count) {
+                console.debug(
+                    `[website_customization] hiding ${product.mm_hidden_variant_count} out-of-stock variant value(s) for product #${product.id}`
+                );
+            }
             for (const ptal of product.attribute_lines || []) {
                 ptal.attribute_values = (ptal.attribute_values || []).filter(
                     (v) => !hidden.has(v.id)
